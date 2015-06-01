@@ -1,0 +1,128 @@
+#:import Screen kivy.uix.screenmanager.Screen
+#:import ScreenManager kivy.uix.screenmanager.ScreenManager
+#:import SlideTransition kivy.uix.screenmanager.SlideTransition
+#:set btnpressed_img 'images/3_rating_good.png'
+
+<MentorWidget>:
+    GridLayout:
+        rows: 2
+        cols: 1
+        ActionBar:
+            pos_hint: {'top':1}
+            ActionView:
+                use_separator: False
+                ActionPrevious:
+                    app_icon: 'images/ic_launcher3.png'
+                    title: 'Mentor'
+                    with_previous: False
+                ActionOverflow:
+                #ActionButton:
+                #    text: 'Btn0'
+                #    icon: 'images/12_hardware_headphones.png'
+                ActionButton:
+                    text: 'Sequence'
+                    on_release: sm.transition.direction, sm.current = 'right', 'sequenceselector'
+                ActionButton:
+                    text: 'Player'
+                    on_release: sm.transition.direction, sm.current = 'left', 'mentorplayer'
+        ScreenManager:
+            id: sm
+            Screen:
+                name: 'sequenceselector'
+                ScrollView:
+                    do_scroll_x: False
+                    pos_hint: {'center_x': .5, 'center_y': .5}
+                    GridLayout:
+                        id: grid_main
+                        #size_hint_y: None  # 5
+                        #size_hint: (None, None)
+                        #rows:4
+                        cols:2
+                        #spacing: 2
+                        #row_force_default: 50
+                        TextInput:
+                            size_hint_x: 3
+                            text: app.timer_value
+                            font_size: 70
+                            multiline: False
+                        Button:
+                            id: btnMusic
+                            background_normal: 'images/12_hardware_headphones.png'
+                            background_down: btnpressed_img
+                            on_press:
+
+            Screen:
+                name: 'mentorplayer'
+                GridLayout:
+                    rows: 4
+                    cols: 1
+                    GridLayout:
+                        rows: 1
+                        cols: 1
+                        size_hint_y: 5
+                        AsyncImage:
+                            id: img_bk
+                            source: "images/bk_nw.png"
+                    GridLayout:
+                        rows: 1
+                        cols: 1
+                        size_hint_y: 2
+                        Label:
+                            #size_hint_x: 4
+                            id: log
+                            text: 'Mentor Text'
+                    GridLayout:
+                        rows:1
+                        cols:7
+                        Button:
+                            id: btn_rewind
+                            background_normal: 'images/9_av_rewind.png'
+                            background_down: btnpressed_img
+                            border: (0,0,0,0)
+                            on_press: app.osc_push_message('rewind', '/cmd')
+                        Button:
+                            id: btn_play
+                            background_normal: 'images/9_av_play.png'
+                            background_down: btnpressed_img
+                            border: (0,0,0,0)
+                            on_press: app.osc_push_message('play', '/cmd')
+                        Button:
+                            id: btn_pause
+                            background_normal: 'images/9_av_pause.png'
+                            background_down: btnpressed_img
+                            border: (0,0,0,0)
+                            on_press: app.osc_push_message('pause', '/cmd')
+                        Button:
+                            id: btn_stop
+                            background_normal: 'images/9_av_stop.png'
+                            background_down: btnpressed_img
+                            border: (0,0,0,0)
+                            on_press: app.osc_push_message('stop', '/cmd')
+                        Button:
+                            id: btn_fforward
+                            background_normal: 'images/9_av_fast_forward.png'
+                            background_down: btnpressed_img
+                            border: (0,0,0,0)
+                            on_press: app.osc_push_message('forward', '/cmd')
+
+                        Label:
+                            size_hint_x: 3
+                            text: ' '
+                        Button:
+                            id: btnMusic
+                            background_normal: 'images/12_hardware_headphones.png'
+                            background_down: btnpressed_img
+                            on_press:
+                    GridLayout:
+                        rows:1
+                        cols:4
+                        Label:
+                            text: 'Left'
+                        Label:
+                            id: partial_left
+                            text: '00.00'
+                        Label:
+                            text: 'Tot Left'
+                        Label:
+                            id: total_left
+                            text: '00.00'

@@ -1,0 +1,21 @@
+title	Office 0.2 (90'0'')
+Start of the sequence ---------------------------------------		
+300	TTS_IT	Controlla la postura
+300	TTS_IT	Tre respiri profondi
+300	TTS_IT	Sei un guerriero di luce
+300	TTS_IT	Controlla la postura
+300	TTS_IT	Tre respiri profondi
+300	TTS_IT	Sei un gran negoziatore
+300	TTS_IT	Controlla la postura
+300	TTS_IT	Tre respiri profondi
+300	TTS_IT	Pensa avanti
+300	TTS_IT	Controlla la postura
+300	TTS_IT	Tre respiri profondi
+300	TTS_IT	tre secondi di pausa prima di rispondere
+300	TTS_IT	Controlla la postura
+300	TTS_IT	Tre respiri profondi
+300	TTS_IT	Proper preparation prevents pur performans
+300	TTS_IT	Controlla la postura
+300	TTS_IT	Tre respiri profondi
+300	TTS_IT	un milione di euro ti sta aspettando
+0	TTS_IT	Anche oggi la lezione è finita!

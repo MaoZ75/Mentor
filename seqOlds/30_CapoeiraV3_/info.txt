@@ -1,0 +1,43 @@
+title	Cap Laercio1 (44'0'')	
+Start of the sequence --------------------------		
+150	TTS_IT	Mancano 7,5 minuti
+150	TTS_IT	Mancano 5 minuti
+150	TTS_IT	Mancano 2,5 minuti
+25	TTS_IT	Ora un poco di streccing
+25	TTS_IT	Cambio
+25	TTS_IT	Cambio
+25	TTS_IT	Cambio
+25	TTS_IT	Cambio
+25	TTS_IT	Cambio
+25	TTS_IT	Cambio
+25	TTS_IT	Cambio. Poi in piedi per esercizi laercio
+20	TTS_IT	Su un piede piede avanti
+20	TTS_IT	Ruotare il piede
+20	TTS_IT	Piede appoggiato sul ginocchio
+20	TTS_IT	Accucciarsi seduti
+20	TTS_IT	Semigingare su una gamba
+20	TTS_IT	Cambio piede in avanti
+20	TTS_IT	Ruotare il piede
+20	TTS_IT	Piede appoggiato sul ginocchio
+20	TTS_IT	Accucciarsi seduti
+20	TTS_IT	Semigingare su una gamba
+20	TTS_IT	Stretching da post cycling
+60	TTS_IT	Finta caduta stile colonna.  Con slancio piedi posteriori mi accuccio e salto in alto.
+60	TTS_IT	Finta caduta stile colonna   Camminata bassa a destra e sinistra
+60	TTS_IT	Finta caduta stile colonna   4 saltelli avanti e 4 indietro su mani e piedi
+60	TTS_IT	Finta caduta stile colonna   Allenare movimento di bacino per andare stile Cesora
+40	TTS_IT	Rollé, Mezzo rollé passo indietro e schiva
+40	TTS_IT	Rollé, Mezzo rollé passo indietro e schiva, Negativa, Rollé para fora
+60	TTS_IT	Rollé, Mezzo rollé passo indietro e schiva, Negativa, Rollé para fora, Pulo di dislocamento, Pulo di dislocamento
+60	TTS_IT	Rollé, Mezzo rollé passo indietro e schiva, Negativa, Rollé para fora, Pulo di dislocamento, Pulo di dislocamento, Finta di abo de arraia, Cabesada rotante
+120	TTS_IT	Bananeira partendo da chinino
+120	TTS_IT	Bananeira
+10	TTS_IT	Finito!
+120	TTS_IT	Fai una buona scelta dei vestiti per la giornata
+240	TTS_IT	Ora vestiti da illuminato. Concentrati su cio' che fai.
+60	TTS_IT	Hai ancora un minuto
+360	TTS_IT	Buona colazione!
+120	TTS_IT	hai ancora 2 Minuti
+120	TTS_IT	Mancano 3 Minuti all uscita raduna le cose, lavati i denti e parti!
+60	TTS_IT	Manca 1 Minuto
+0	TTS_IT	Complimenti! Anche questo Task E' portato a termine!

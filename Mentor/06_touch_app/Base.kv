@@ -1,0 +1,87 @@
+#PageLayout:
+FloatLayout:
+    id: home
+    Label:
+        size_hint: 1.0, .1
+        pos_hint: {'x': .0, 'y': .9}
+        font_size: '30dp'
+        text: 'Settings'
+    Spinner:
+        id: 'type'
+        text: "AMRAP"
+        values: 'AMRAP', 'EMOM', 'CAP Time'
+        pos_hint: {'x': .0, 'y': .0}
+        size_hint: .2, .1
+    TextInput:
+        id: 'minutes'
+        text: '30'
+        font_size: '80dp'
+        background_color: (0,0,0,1)
+        foreground_color: (1.0,1.0,1.0,1.0)
+        font_color: (0,0,0,0)
+        input_filter: 'int'
+        pos_hint: {'x': .2, 'y': .7}
+        size_hint: .2, .2
+    Label:
+        size_hint: .1, .1
+        pos_hint: {'x': .35, 'y': .8}
+        font_size: '30dp'
+        text: '\''
+    TextInput:
+        id: 'seconds'
+        text: '00'
+        font_size: '80dp'
+        background_color: (0,0,0,1)
+        foreground_color: (1.0,1.0,1.0,1.0)
+        font_color: (0,0,0,0)
+        input_filter: 'int'
+        pos_hint: {'x': .5, 'y': .7}
+        size_hint: .2, .2
+    Label:
+        size_hint: .1, .1
+        pos_hint: {'x': .65, 'y': .8}
+        font_size: '30dp'
+        text: '\'\''
+    TextInput:
+        id: 'exercises'
+        text: '05'
+        font_size: '80dp'
+        background_color: (0,0,0,1)
+        foreground_color: (1.0,1.0,1.0,1.0)
+        font_color: (0,0,0,0)
+        input_filter: 'int'
+        pos_hint: {'x': .2, 'y': .5}
+        size_hint: .2, .2
+    Label:
+        size_hint: .1, .1
+        pos_hint: {'x': .3, 'y': .45}
+        font_size: '30dp'
+        text: 'exercises'
+    TextInput:
+        id: 'times'
+        text: '01'
+        font_size: '80dp'
+        background_color: (0,0,0,1)
+        foreground_color: (1.0,1.0,1.0,1.0)
+        font_color: (0,0,0,0)
+        input_filter: 'int'
+        pos_hint: {'x': .5, 'y': .5}
+        size_hint: .2, .2
+    Label:
+        size_hint: .1, .1
+        pos_hint: {'x': .6, 'y': .45}
+        font_size: '30dp'
+        text: 'repetitions'
+    Label:
+        size_hint: 1.0, .1
+        pos_hint: {'x': .0, 'y': .9}
+        font_size: '30dp'
+        text: 'Settings'
+    Button:
+        text: "Start"
+        font_size: '80dp'
+        background_color: (0.1,0.1,0.1,1)
+        #foreground_color: (1.0,1.0,1.0,1.0)
+        pos_hint: {'x': .6, 'y': .0}
+        size_hint: .4, .3
+        on_press: print('Pressed Start')

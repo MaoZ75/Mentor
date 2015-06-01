@@ -1,0 +1,11 @@
+title	Charisma 01 (1'10'')			Charisma 01
+lastmod				
+timing in sec	type of order	image	sound	tts message
+Start of the sequence ---------------------------------------				
+10	TTS_EN			Close your eyes and relax.
+10	TTS_EN			Remember a past experience, when you felt absolutely triumphant. For example, the day you won a contest, or an award
+10	TTS_EN			Hear the sounds in the room. The murmurs of approval, the swell of applause.
+10	TTS_EN			See people's smiles and expressions of warmth and admiration.
+10	TTS_EN			Feel your feet on the ground, and the congratulatory handshakes.
+10	TTS_EN			Above all, experience your feelings, the warm glow of confidence rising within you!
+10	TTS_EN			Now you're a real light warrior. Go your way!

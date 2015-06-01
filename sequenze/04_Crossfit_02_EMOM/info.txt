@@ -1,0 +1,46 @@
+title	CF02: Emom FrSq-Burp-Clean (10'47'')			CF02: Emom
+lastmod				
+timing in sec	type of order	image	sound	tts message
+Start of the sequence ---------------------------------------				0
+5	TTS_EN	emom.jpg		EMOM warm up
+20	TTS_EN	front_squat.jpg		3 front squat
+15	TTS_EN	burpees.jpg		3 burpees
+25	TTS_EN	med_ball_clean.jpg		3 medball clean
+4	TTS_EN	emom.jpg	default	End of round 1.
+20	TTS_EN	front_squat.jpg		3 front squat
+15	TTS_EN	burpees.jpg		3 burpees
+25	TTS_EN	med_ball_clean.jpg		3 medball clean
+4	TTS_EN	emom.jpg	default	End of round 2.
+20	TTS_EN	front_squat.jpg		3 front squat
+15	TTS_EN	burpees.jpg		3 burpees
+25	TTS_EN	med_ball_clean.jpg		3 medball clean
+4	TTS_EN	emom.jpg	default	End of round 3.
+20	TTS_EN	front_squat.jpg		3 front squat
+15	TTS_EN	burpees.jpg		3 burpees
+25	TTS_EN	med_ball_clean.jpg		3 medball clean
+4	TTS_EN	emom.jpg	default	End of round 4.
+20	TTS_EN	front_squat.jpg		3 front squat
+15	TTS_EN	burpees.jpg		3 burpees
+25	TTS_EN	med_ball_clean.jpg		3 medball clean
+4	TTS_EN	emom.jpg	default	End of round 5.
+20	TTS_EN	front_squat.jpg		3 front squat
+15	TTS_EN	burpees.jpg		3 burpees
+25	TTS_EN	med_ball_clean.jpg		3 medball clean
+4	TTS_EN	emom.jpg	default	End of round 6.
+20	TTS_EN	front_squat.jpg		3 front squat
+15	TTS_EN	burpees.jpg		3 burpees
+25	TTS_EN	med_ball_clean.jpg		3 medball clean
+4	TTS_EN	emom.jpg	default	End of round 7.
+20	TTS_EN	front_squat.jpg		3 front squat
+15	TTS_EN	burpees.jpg		3 burpees
+25	TTS_EN	med_ball_clean.jpg		3 medball clean
+4	TTS_EN	emom.jpg	default	End of round 8.
+20	TTS_EN	front_squat.jpg		3 front squat
+15	TTS_EN	burpees.jpg		3 burpees
+25	TTS_EN	med_ball_clean.jpg		3 medball clean
+4	TTS_EN	emom.jpg	default	End of round 9.
+20	TTS_EN	front_squat.jpg		3 front squat
+15	TTS_EN	burpees.jpg		3 burpees
+25	TTS_EN	med_ball_clean.jpg		3 medball clean
+4	TTS_EN	emom.jpg	default	End of round 10.
+2	TTS_EN		default	Now you're very hot!

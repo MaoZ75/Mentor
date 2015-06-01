@@ -1,0 +1,11 @@
+title	30 minuti (30'0'')
+Start of the sequence ---------------------------------------		
+300	TTS_IT	Mancano 30 minuti
+300	TTS_IT	Mancano 25 minuti
+300	TTS_IT	Mancano 20 minuti
+300	TTS_IT	Mancano 15 Minuti
+300	TTS_IT	Mancano 10 minuti
+120	TTS_IT	Mancano 5 minuti
+120	TTS_IT	Mancano 3 minuti
+60	TTS_IT	Manca 1 minuto
+0	TTS_IT	Fine

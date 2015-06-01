@@ -1,0 +1,37 @@
+title	ABS Workout (13'25'')			ABS Workout
+lastmod				
+timing in sec	type of order	image	sound	tts message
+Start of the sequence ---------------------------------------				0
+5	TTS_EN			ABS Workout
+40	TTS_EN	abs_1.jpg		Abdominals 1
+10	TTS_EN	now_rest.png		Now rest
+40	TTS_EN	abs_2.jpg		Abdominals 2
+10	TTS_EN	now_rest.png		Now rest
+40	TTS_EN	abs_3.jpg		Abdominals 3
+10	TTS_EN	now_rest.png		Now rest
+40	TTS_EN	abs_4.jpg		Abdominals 4
+10	TTS_EN	now_rest.png		Now rest
+40	TTS_EN	abs_5.jpg		Abdominals 5
+10	TTS_EN	now_rest.png		Now rest
+40	TTS_EN	abs_6.jpg		Abdominals 6
+10	TTS_EN	now_rest.png		Now rest
+40	TTS_EN	abs_7.jpg		Abdominals 7
+10	TTS_EN	now_rest.png		Now rest
+40	TTS_EN	abs_8.jpg		Abdominals 8
+10	TTS_EN	now_rest.png		One Minute Rest
+40	TTS_EN	abs_1.jpg		Abdominals 1
+10	TTS_EN	now_rest.png		Now rest
+40	TTS_EN	abs_2.jpg		Abdominals 2
+10	TTS_EN	now_rest.png		Now rest
+40	TTS_EN	abs_3.jpg		Abdominals 3
+10	TTS_EN	now_rest.png		Now rest
+40	TTS_EN	abs_4.jpg		Abdominals 4
+10	TTS_EN	now_rest.png		Now rest
+40	TTS_EN	abs_5.jpg		Abdominals 5
+10	TTS_EN	now_rest.png		Now rest
+40	TTS_EN	abs_6.jpg		Abdominals 6
+10	TTS_EN	now_rest.png		Now rest
+40	TTS_EN	abs_7.jpg		Abdominals 7
+10	TTS_EN	now_rest.png		Now rest
+40	TTS_EN	abs_8.jpg		Abdominals 8
+10	TTS_EN	now_rest.png		End of work!

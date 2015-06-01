@@ -1,0 +1,43 @@
+title	Mattino 0.7 (58'10'')
+Start of the sequence ---------------------------------------		
+60	TTS_IT	Comincia un nuovo giorno, ripeti fino a nuovo ordine guadagnerò un milione di euro!
+60	TTS_IT	Sei un guerriero di luce. Alzati, stirati e lavati la faccia
+120	TTS_IT	Una minzione, poi vestiti ed esci. Hai tre minuti
+60	TTS_IT	Ancora un minuto per gli ultimi preparativi, e se riesci alla spremuta di limone
+10	TTS_EN	Here comes the work. 10 minutes of running. Stretching, capoeria conditioning.
+300	TTS_EN	Run for ten minutes
+240	TTS_EN	5 minutes left
+60	TTS_EN	One minute left
+30	TTS_IT	Trova un posto adatto agli esercizi
+30	TTS_IT	Stretching per 5 minuti
+30	TTS_EN	Change
+30	TTS_EN	Change
+30	TTS_EN	Change
+30	TTS_EN	Change
+30	TTS_EN	Change
+30	TTS_EN	Change
+30	TTS_EN	Change
+30	TTS_EN	Change, still 4
+30	TTS_EN	Change
+30	TTS_EN	Change, 2 Left!
+30	TTS_EN	Change
+30	TTS_BR	Ginga
+90	TTS_BR	Negativa, rolle', virada di jogo, pulo, rabe de arraia
+30	TTS_BR	Ginga
+60	TTS_BR	Finta di Au a destra e sinistra
+30	TTS_BR	Ginga
+120	TTS_BR	Au preso
+30	TTS_BR	Ginga
+60	TTS_BR	Bananeira
+120	TTS_IT	Ora torna a casa
+300	TTS_IT	Ora sotto la doccia, hai 7 minuti
+120	TTS_IT	hai ancora 2 Minuti
+120	TTS_IT	Mentre ti asciughi  metti su l'acqua del te e fai la barba e metti le lenti
+120	TTS_IT	Fai una buona scelta dei vestiti per la giornata
+240	TTS_IT	Ora vestiti da illuminato. Concentrati su cio' che fai.
+60	TTS_IT	Hai ancora un minuto
+360	TTS_IT	Buona colazione!
+120	TTS_IT	hai ancora 2 Minuti
+120	TTS_IT	Mancano 3 Minuti all uscita raduna le cose, lavati i denti e parti!
+60	TTS_IT	Manca 1 Minuto
+0	TTS_IT	Complimenti! Anche questo Task E' portato a termine!

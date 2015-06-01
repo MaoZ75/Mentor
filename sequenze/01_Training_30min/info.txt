@@ -1,0 +1,32 @@
+title	Mao Training (26'40'')			
+lastmod				
+timing in sec	type of order	image	sound	image
+Start of the sequence ---------------------------------------				
+10	TTS_EN			Here comes the work. 10 minutes of running. Stretching, capoeria conditioning.
+300	TTS_EN			Run for ten minutes
+240	TTS_EN			5 minutes left
+60	TTS_EN			One minute left
+30	TTS_IT			Trova un posto adatto agli esercizi
+30	TTS_IT			Stretching per 7 minuti
+30	TTS_EN			Change
+30	TTS_EN			Change
+30	TTS_EN			Change
+30	TTS_EN			Change
+30	TTS_EN			Change
+30	TTS_EN			Change
+30	TTS_EN			Change
+30	TTS_EN			Change
+30	TTS_EN			Change
+30	TTS_EN			Change, still 4
+30	TTS_EN			Change
+30	TTS_EN			Change, 2 Left!
+30	TTS_EN			Change
+60	TTS_BR			Ginga
+120	TTS_BR			Negativa, rollè, virada di jogo, pulo, rabo de arraia
+30	TTS_BR			Ginga
+60	TTS_BR			Finta di Au a destra e sinistra
+30	TTS_BR			Ginga
+120	TTS_BR			Au preso
+30	TTS_BR			Ginga
+60	TTS_BR			Bananeira
+30	TTS_IT			Complimenti! Anche questo Task E' portato a termine!

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="3826.7715"
+   height="6803.1494"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="Interfaccia.svg">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.125"
+     inkscape:cx="1827.4313"
+     inkscape:cy="5475.4965"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     units="mm"
+     inkscape:window-width="1366"
+     inkscape:window-height="706"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid2985"
+       empspacing="10"
+       visible="false"
+       enabled="true"
+       snapvisiblegridlinesonly="true"
+       units="mm"
+       originx="0mm"
+       dotted="true"
+       spacingx="10mm"
+       spacingy="10mm"
+       empcolor="#000000"
+       empopacity="0.38039216" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Livello 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,5750.7874)">
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot2987"
+       style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:Sans;font-style:normal;font-weight:normal;font-size:144px;line-height:125%;letter-spacing:0px;word-spacing:0px"><flowRegion
+         id="flowRegion2989"><rect
+           id="rect2991"
+           width="2796.1023"
+           height="3208.2444"
+           x="4347.6968"
+           y="-1.2381207"
+           style="font-size:144px" /></flowRegion><flowPara
+         id="flowPara2993"></flowPara></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot2995"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       transform="translate(0,-5750.7874)"><flowRegion
+         id="flowRegion2997"><rect
+           id="rect2999"
+           width="3088.6423"
+           height="2466.3884"
+           x="4378.4053"
+           y="139.37512" /></flowRegion><flowPara
+         id="flowPara3001"
+         style="font-size:144px">1920 * 1080 = 1,78</flowPara><flowPara
+         style="font-size:144px"
+         id="flowPara3003" /><flowPara
+         style="font-size:144px"
+         id="flowPara3005" /></flowRoot>    <text
+       xml:space="preserve"
+       style="font-size:256.20425415px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="17.744583"
+       y="-3601.4985"
+       id="text3009"
+       sodipodi:linespacing="125%"
+       transform="scale(0.6762627,1.4787153)"><tspan
+         sodipodi:role="line"
+         id="tspan3011"
+         x="17.744583"
+         y="-3601.4985">    Logo                         Pulsante1     Pulsante 2</tspan></text>
+    <rect
+       style="opacity:0.42083333;color:#000000;fill:#333333;stroke:none;stroke-width:1.25;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect3007"
+       width="3826.7717"
+       height="708.66144"
+       x="0"
+       y="-5750.7876" />
+  </g>
+</svg>
