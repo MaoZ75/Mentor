@@ -3,6 +3,7 @@
 GridLayout:
     rows: 2
     cols: 1
+    # -------------------------------------------Action Bar
     ActionBar:
         id: action_bar
         pos_hint: {'top':1}
@@ -14,17 +15,22 @@ GridLayout:
                 with_previous: False
             ActionButton:
                 text: screens[page_layout.page]
-
-            ActionOverflow:
-            #ActionButton:
-            #    text: 'Btn0'
-            #    icon: 'images/12_hardware_headphones.png'
-            ActionButton:
-                text: 'Sequence'
-                on_release: sm.transition.direction, sm.current = 'right', 'sequenceselector'
-            ActionButton:
-                text: 'Player'
-                on_release: sm.transition.direction, sm.current = 'left', 'mentorplayer'
+            ActionGroup:
+                mode: 'spinner'
+                text: 'pages'
+                ActionButton:
+                    text: screens[0]
+                    on_press: page_layout.page = 0
+                ActionButton:
+                    text: screens[1]
+                    on_press: page_layout.page = 1
+                ActionButton:
+                    text: screens[2]
+                    on_press: page_layout.page = 2
+                ActionButton:
+                    text: screens[3]
+                    on_press: page_layout.page = 3
+    # ------------------------------------ sequenceselector
     PageLayout:
         id: page_layout
         #border: '20dp'
@@ -43,7 +49,7 @@ GridLayout:
                     #spacing: 2
                     #row_force_default: 50
 
-        # --------------------------------------------------------------------------- HOME
+        # -------------------------------------------- HOME
         FloatLayout:
             id: 'home'
             canvas:
@@ -140,7 +146,8 @@ GridLayout:
                 on_press:
                     page_layout.page = 1
                     stop.state = 'down'
-
+                    start.active = False
+                    stop.active = True
             Button:
                 id: stop
                 text: "Stop"
@@ -153,7 +160,9 @@ GridLayout:
                 #state: pressed
                 on_press:
                     start.state = 'down'
-        # --------------------------------------------------------------------------- TIMER
+                    stop.active = False
+                    start.active = True
+        # ------------------------------------------- TIMER
         FloatLayout:
             canvas:
                 Color:
@@ -166,7 +175,7 @@ GridLayout:
                 pos_hint: {'x': .0, 'y': .9}
                 font_size: '30dp'
                 text: 'Second Layout'
-        # --------------------------------------------------------------------------- PHOTOS
+        # ------------------------------------------ PHOTOS
         FloatLayout:
             canvas:
                 Color:
