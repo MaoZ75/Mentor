@@ -6,13 +6,11 @@ kivy.require('1.9.0')
 from kivy.app import App
 import mentor_lib
 from kivy.uix.button import Button
-#from kivy.clock import Clock
+from kivy.clock import Clock
 from functools import partial
 from kivy.logger import Logger
 
-
-
-
+# Determine PLatform
 from kivy.utils import Platform
 is_android = Platform() == 'android'
 is_win = Platform() == 'win'
@@ -28,6 +26,7 @@ class BaseApp(App):
         self.osc_id = osc.listen(ipAddr='0.0.0.0', port=activity_port)
         osc.init()
         osc.bind(self.osc_id, self.msg_from_server, '/msg')
+        osc.bind(self.osc_id, self.write_cockpit, '/osd')
         #osc.bind(self.osc_id, self.root.write_cockpit, '/osd')
         self.icon = 'images/ic_launcher.png'
         if is_android:
@@ -42,6 +41,8 @@ class BaseApp(App):
             btn.bind(on_press=partial(self.sequences.get_osc_message_from_title, title))
             self.root.ids.grid_main.add_widget(btn)
         #Clock.schedule_interval(self.timed_ops, .1)
+
+
         return self.root
 
     @staticmethod
@@ -60,19 +61,28 @@ class BaseApp(App):
 
     def osc_send(self, *largs):
         if len(largs) == 2:
-            type = largs[1]
+            msg_type = largs[1]
             msg = largs[0]
-        else: # Sending default OSC
-            type = self.sequences.current_osc_message[1]
+        else:  # Sending default OSC
+            msg_type = self.sequences.current_osc_message[1]
             msg = self.sequences.current_osc_message[0]
-        Logger.debug("main.BaseApp.osc_send: sending message'[{}]{}' on port {}".format(type, msg, service_port))
-        osc.sendMsg(type, [msg, ], port=service_port)
+        Logger.debug("main.BaseApp.osc_send: sending message'[{}]{}' on port {}".format(msg_type, msg, service_port))
+        osc.sendMsg(msg_type, [msg, ], port=service_port)
 
-    #def timed_ops(self, dt):
-    #    pass
-        #self.osc_send()
-        #osc.readQueue(self.osc_id)
-        #self.speak_service()
+    def write_cockpit(self, message, *args):
+        Logger.debug("write_cockpit: {}".format(message[2]))
+        partial, total, img, label, other = message[2].split('\t', 4)
+        #partial='00.00',total='00.00', label="Some Sequence"):
+        self.root.ids.partial_left.text = partial
+        self.root.ids.total_left.text = total
+        #Logger.debug("New Image: {}".format(img))
+        if self.root.ids.img_bk.source != img:
+            self.root.ids.img_bk.source = img
+        self.root.ids.log.text = label
+
+    def write_timer(self, message, *args):
+        self.root.ids.current_minute, self.root.ids.current_second, self.root.ids.current_exercise, current_repetition \
+            = message[2].split('\t', 4)
 
 
 if __name__ == '__main__':

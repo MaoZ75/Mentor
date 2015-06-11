@@ -139,8 +139,8 @@ class Sequence():
                 return 50
 
     def activity_click(self):
-        Logger.debug("sequence.activity_click: self.sequence_state: {} - okPLay: {}".format(
-            self.sequence_state, self.ok_play))
+        #Logger.debug("sequence.activity_click: self.sequence_state: {} - okPLay: {}".format(
+        #    self.sequence_state, self.ok_play))
         if self.ok_play:
             if self.res_last_action == 0:  # Ok for a new check
                 missing = self.time_end_step - time.time()

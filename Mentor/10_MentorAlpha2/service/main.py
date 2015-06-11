@@ -42,7 +42,7 @@ msg_feeding_ok.time = 0
 def osc_send():
     if len(osc_send.activities) > 0:
         msg, reg_type = osc_send.activities.pop(0)
-        # Logger.info("osc_send: {}({}) [{} messages in queue]".format(msg, reg_type, len(osc_send.activities)))
+        #Logger.info("osc_send: {}({}) [{} messages in queue]".format(msg, reg_type, len(osc_send.activities)))
         osc.sendMsg(reg_type, [msg, ], port=activity_port)
 osc_send.activities = []
 
@@ -82,9 +82,9 @@ if __name__ == '__main__':
             pass
             #tts.speak(message='Resistance is FUTILE. Select an e-mail app.', language='EN')
         """
-        #Logger.debug("service/main: cycling")
         osc.readQueue(oscid)
         osc_push_message(sequence.get_state_string(), '/osd')
+        #Logger.debug("service/main: cycling")
         osc_send()
         sequence.activity_click()
         #sequence.get_state_string()

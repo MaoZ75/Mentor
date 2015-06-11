@@ -1,4 +1,4 @@
-#:set screens ['Sequence', 'Time Settings', 'Timer', 'Imagery']
+#:set screens ['Time Settings', 'Sequence', 'Timer', 'Imagery']
 #:set btnpressed_img 'images/3_rating_good.png'
 
 
@@ -16,36 +16,38 @@ GridLayout:
                 title: 'Mentor'
                 with_previous: False
             ActionButton:
-                text: screens[page_layout.page]
+                text: screens[page_layout.index]
             ActionGroup:
                 mode: 'spinner'
                 text: 'pages'
                 ActionButton:
                     text: screens[0]
-                    on_press: page_layout.page = 0
+                    on_press: page_layout.index = 0
                 ActionButton:
                     text: screens[1]
-                    on_press: page_layout.page = 1
+                    on_press: page_layout.index = 1
                 ActionButton:
                     text: screens[2]
-                    on_press: page_layout.page = 2
+                    on_press: page_layout.index = 2
                 ActionButton:
                     text: screens[3]
-                    on_press: page_layout.page = 3
-    PageLayout:
+                    on_press: page_layout.index = 3
+    Carousel:
         id: page_layout
-        border: page_layout.width/10.0
-        swipe_threshold: .3
-        page: 1
+        direction: 'right'
+        #current_slide: 1
+        loop: True
+        index: 1
     # ------------------------------------ sequence_selector
         GridLayout:
             id: grid_sequences
             rows: 2
-            padding: [grid_main.width/9.0,10.0,.0,10.0]
-            spacing: grid_main.width/50.0
+            padding: [10.0,10.0,10.0,10.0]
             GridLayout:
                 id: grid_main
                 cols:2
+                spacing: 10.0
+                padding: [0.0,10.0,0.0,10.0]
                 #spacing: 2
                 #row_force_default: 50
             Button:
@@ -56,27 +58,14 @@ GridLayout:
                     app.osc_send()
             #spacing: 2
             #row_force_default: 50
-
     # ------------------------------------------------ HOME
         FloatLayout:
             id: 'home'
-            canvas:
-                Color:
-                    rgba: (0, 0, 0, 1)
-                Rectangle:
-                    pos: self.pos
-                    size: self.size
             Label:
                 size_hint: 1.0, .1
                 pos_hint: {'x': .0, 'y': .9}
                 font_size: '30dp'
                 text: 'Settings'
-            Spinner:
-                id: 'type'
-                text: "AMRAP"
-                values: 'AMRAP', 'RFT (w CAP Time)', 'EMOM'
-                pos_hint: {'x': .11, 'y': .0}
-                size_hint: .2, .1
             TextInput:
                 id: minutes
                 text: '30'
@@ -93,7 +82,7 @@ GridLayout:
                 font_size: '30dp'
                 text: '\''
             TextInput:
-                id: 'seconds'
+                id: seconds
                 text: '00'
                 font_size: '80dp'
                 background_color: (0,0,0,1)
@@ -108,7 +97,7 @@ GridLayout:
                 font_size: '30dp'
                 text: '\'\''
             TextInput:
-                id: 'exercises'
+                id: exercises
                 text: '05'
                 font_size: '80dp'
                 background_color: (0,0,0,1)
@@ -123,7 +112,7 @@ GridLayout:
                 font_size: '30sp'
                 text: 'ex.'
             TextInput:
-                id: 'times'
+                id: repetitions
                 text: '01'
                 font_size: '80sp'
                 background_color: (0,0,0,1)
@@ -142,19 +131,96 @@ GridLayout:
                 pos_hint: {'x': .0, 'y': .9}
                 font_size: '30dp'
                 text: 'Settings'
+            Spinner:
+                id: 'type'
+                text: "AMRAP"
+                values: 'AMRAP', 'RFT (w CAP Time)', 'EMOM'
+                pos_hint: {'x': .1, 'y': .0}
+                size_hint: .3, .2
             Button:
                 id: start
+                text: "Start\nSequence"
+                group: 'Commands'
+                font_size: '40dp'
+                background_color: (0.1,0.1,0.1,1)
+                #foreground_color: (1.0,1.0,1.0,1.0)
+                pos_hint: {'x': .5, 'y': .0}
+                size_hint: .4, .2
+                on_press:
+                    page_layout.index = 2
+                    app.osc_send("{}.{}.{}.{}".format(minutes.text, seconds.text, exercises.text, repetitions.text), "/tmr")
+        # ------------------------------------------- TIMER
+        FloatLayout:
+            id: home
+            Label:
+                id: current_title
+                size_hint: 1.0, .1
+                pos_hint: {'x': .0, 'y': .9}
+                font_size: '30dp'
+                text: "----"
+            Label:
+                id: current_minute
+                text: "'"
+                font_size: '80dp'
+                background_color: (0,0,0,1)
+                foreground_color: (1.0,1.0,1.0,1.0)
+                font_color: (0,0,0,0)
+                pos_hint: {'x': .2, 'y': .7}
+                size_hint: .3, .2
+            Label:
+                id: current_second
+                text: "''"
+                font_size: '80dp'
+                background_color: (0,0,0,1)
+                foreground_color: (1.0,1.0,1.0,1.0)
+                font_color: (0,0,0,0)
+                pos_hint: {'x': .6, 'y': .7}
+                size_hint: .3, .2
+            Label:
+                id: current_exercise
+                text: '0'
+                font_size: '80dp'
+                background_color: (0,0,0,1)
+                foreground_color: (1.0,1.0,1.0,1.0)
+                font_color: (0,0,0,0)
+            Label:
+                size_hint: .1, .1
+                pos_hint: {'x': .3, 'y': .45}
+                font_size: '30sp'
+                text: 'ex.'
+            Label:
+                id: current_repetition
+                text: '0'
+                font_size: '80sp'
+                background_color: (0,0,0,1)
+                foreground_color: (1.0,1.0,1.0,1.0)
+                font_color: (0,0,0,0)
+                pos_hint: {'x': .6, 'y': .5}
+                size_hint: .3, .2
+            Label:
+                size_hint: .1, .1
+                pos_hint: {'x': .6, 'y': .45}
+                font_size: '30dp'
+                text: 'reps'
+            Button:
                 text: "Start"
+                group: 'Commands'
+                font_size: '40dp'
+                background_color: (0.1,0.1,0.1,1)
+                #foreground_color: (1.0,1.0,1.0,1.0)
+                pos_hint: {'x': .05, 'y': .0}
+                size_hint: .3, .2
+                on_press: app.osc_send('start', '/cmd')
+            Button:
+                text: "Pause"
                 group: 'Commands'
                 font_size: '40dp'
                 background_color: (0.1,0.1,0.1,1)
                 #foreground_color: (1.0,1.0,1.0,1.0)
                 pos_hint: {'x': .35, 'y': .0}
                 size_hint: .3, .2
-                on_press:
-                    page_layout.page = 2
+                on_press: app.osc_send('pause', '/cmd')
             Button:
-                id: stop
                 text: "Stop"
                 group: 'Commands'
                 font_size: '40dp'
@@ -162,29 +228,10 @@ GridLayout:
                 #foreground_color: (1.0,1.0,1.0,1.0)
                 pos_hint: {'x': .65, 'y': .0}
                 size_hint: .3, .2
-        # ------------------------------------------- TIMER
-        FloatLayout:
-            canvas:
-                Color:
-                    rgba: (0, 0, 0, 1)
-                Rectangle:
-                    pos: self.pos
-                    size: self.size
-            Label:
-                size_hint: 1.0, .1
-                pos_hint: {'x': .0, 'y': .9}
-                font_size: '30dp'
-                text: 'Second Layout'
+                on_press: app.osc_send('stop', '/cmd')
         # ------------------------------------------ PHOTOS
         GridLayout:
             id: photos
-            padding: [.0,.0,photos.width/9.0,0.0]
-            canvas:
-                Color:
-                    rgba: (0, 0, 0, 1)
-                Rectangle:
-                    pos: self.pos
-                    size: self.size
             rows: 4
             cols: 1
             GridLayout:
@@ -209,31 +256,26 @@ GridLayout:
                 Label:
                     size_hint_x: 1
                 Button:
-                    id: btn_rewind
                     background_normal: 'images/9_av_rewind.png'
                     background_down: btnpressed_img
                     border: (0,0,0,0)
                     on_press: app.osc_send('rewind', '/cmd')
                 Button:
-                    id: btn_play
                     background_normal: 'images/9_av_play.png'
                     background_down: btnpressed_img
                     border: (0,0,0,0)
                     on_press: app.osc_send('play', '/cmd')
                 Button:
-                    id: btn_pause
                     background_normal: 'images/9_av_pause.png'
                     background_down: btnpressed_img
                     border: (0,0,0,0)
                     on_press: app.osc_send('pause', '/cmd')
                 Button:
-                    id: btn_stop
                     background_normal: 'images/9_av_stop.png'
                     background_down: btnpressed_img
                     border: (0,0,0,0)
                     on_press: app.osc_send('stop', '/cmd')
                 Button:
-                    id: btn_fforward
                     background_normal: 'images/9_av_fast_forward.png'
                     background_down: btnpressed_img
                     border: (0,0,0,0)
