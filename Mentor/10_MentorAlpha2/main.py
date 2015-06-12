@@ -40,7 +40,7 @@ class BaseApp(App):
             btn = Button(text=title, shorten=True, text_size=(200, None))  #, size_hint_y=None, height=40)
             btn.bind(on_press=partial(self.sequences.get_osc_message_from_title, title))
             self.root.ids.grid_main.add_widget(btn)
-        #Clock.schedule_interval(self.timed_ops, .1)
+        Clock.schedule_interval(self.timed_ops, .1)
 
 
         return self.root
@@ -70,20 +70,29 @@ class BaseApp(App):
         osc.sendMsg(msg_type, [msg, ], port=service_port)
 
     def write_cockpit(self, message, *args):
-        Logger.debug("write_cockpit: {}".format(message[2]))
-        partial, total, img, label, other = message[2].split('\t', 4)
-        #partial='00.00',total='00.00', label="Some Sequence"):
-        self.root.ids.partial_left.text = partial
-        self.root.ids.total_left.text = total
-        #Logger.debug("New Image: {}".format(img))
-        if self.root.ids.img_bk.source != img:
-            self.root.ids.img_bk.source = img
-        self.root.ids.log.text = label
+        if True:
+            Logger.debug("Here the message -{}-".format(message))
+        else:
+            #for i in range:
+                #if message[i] != old[i]:
+                    #message[i] = old[i]
+                    #update_the_cockpit_value
+            #Logger.debug("write_cockpit: {}\nArgs{}".format(message[2], args))
+            partial, total, img, label, other = message[2].split('\t', 4)
+            #partial='00.00',total='00.00', label="Some Sequence"):
+            self.root.ids.partial_left.text = partial
+            self.root.ids.total_left.text = total
+            #Logger.debug("New Image: {}".format(img))
+            if self.root.ids.img_bk.source != img:
+                self.root.ids.img_bk.source = img
+            self.root.ids.log.text = label
 
     def write_timer(self, message, *args):
         self.root.ids.current_minute, self.root.ids.current_second, self.root.ids.current_exercise, current_repetition \
             = message[2].split('\t', 4)
 
+    def timed_ops(self, dt):
+        osc.readQueue(self.osc_id)
 
 if __name__ == '__main__':
     BaseApp().run()

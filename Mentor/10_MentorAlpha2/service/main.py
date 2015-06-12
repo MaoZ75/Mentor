@@ -44,12 +44,23 @@ def osc_send():
         msg, reg_type = osc_send.activities.pop(0)
         #Logger.info("osc_send: {}({}) [{} messages in queue]".format(msg, reg_type, len(osc_send.activities)))
         osc.sendMsg(reg_type, [msg, ], port=activity_port)
+        #Logger.debug("{}:{}".format(reg_type, msg))
 osc_send.activities = []
+osc_send.last_activity = []
 
+
+def osc_send2():
+    if len(osc_send.activities) > 0:
+        msg, reg_type = osc_send.activities.pop(0)
+        #Logger.info("osc_send: {}({}) [{} messages in queue]".format(msg, reg_type, len(osc_send.activities)))
+        osc.sendMsg(reg_type, msg, port=activity_port)
+        #Logger.debug("{}:{}".format(reg_type, msg))
 
 def osc_push_message(message='idle', reg_type='/msg'):
     #Logger.debug("'{}', '{}'".format(message,reg_type))
-    if osc_send.activities.count([message, reg_type]) == 0:  # Avoids double messages
+    if osc_send.activities.count([message, reg_type]) == 0 and \
+            [message, reg_type] != osc_send.last_activity:  # Avoids double messages and repetitions
+        osc_send.last_activity = [message, reg_type]
         osc_send.activities.append([message, reg_type])
 
 
@@ -85,8 +96,7 @@ if __name__ == '__main__':
         osc.readQueue(oscid)
         osc_push_message(sequence.get_state_string(), '/osd')
         #Logger.debug("service/main: cycling")
-        osc_send()
+        osc_send2()
         sequence.activity_click()
-        #sequence.get_state_string()
-        time.sleep(.1)
+        time.sleep(1.1)
 

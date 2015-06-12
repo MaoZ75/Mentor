@@ -12,6 +12,8 @@ from time import sleep  # ToDo: Eliminare
 #import codecs
 platform = Platform()
 
+msg_index[]
+
 import sys
 reload(sys)
 #sys.setdefaultencoding("windows-1252" )
@@ -219,6 +221,12 @@ class Sequence():
             self.title, seq_text_message.replace(".", "\n"),
             self.idx_stp + 1, len(self.seq_timings),
             "blabla")
+        message = [time_left_action,
+                   self.time_left_total(),
+                   self.bg_img,
+                   self.title, seq_text_message.replace(".", "\n"),
+                   self.idx_stp + 1, len(self.seq_timings),
+                   "blabla"]
         #Logger.debug(message.replace("\t", "<-  ->"))
         return message
 
