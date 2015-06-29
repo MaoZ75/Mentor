@@ -293,6 +293,7 @@ class Sequence():
         elif cmd == 'pause':
             pass # Not Yet Implemented
         elif cmd == 'stop':
+            self.starting_step = 1
             self.activity_click('stop')
         elif cmd == 'forward':
             pass  # Not Yet Implemented
