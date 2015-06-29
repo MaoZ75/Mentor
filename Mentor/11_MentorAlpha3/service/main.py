@@ -100,5 +100,5 @@ if __name__ == '__main__':
         #Logger.debug("service/main: cycling")
         osc_send2()
         sequence.activity_click()
-        time.sleep(1.1)
+        time.sleep(.5)
 

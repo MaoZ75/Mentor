@@ -59,7 +59,7 @@ class Sequence():
 
     def _initialize_image(self, step=-1):
         if step == -1:
-            step = self.idx_stp
+            step = self.idx_stp + 1
         try:
             if self.seq_images[step] == "":
                 #Logger.debug("_initialize_image: same image for background:{}".format(self.bg_img))
@@ -87,15 +87,15 @@ class Sequence():
     def _initialize_sound(self):
         """
         initializes and eventually starts the sound for the current step
-        :return: the next state depending on the result of sound
-            - 20 if always is ok
-            - 50 if the sound shouldn't / coundn't be started
+        :return:
+            True if everything is ok
+            False if the sound shouldn't / coundn't be started
         """
         #Logger.debug("[{}]".format(self.seq_snds[self.idx_stp]))
         if self.seq_snds[self.idx_stp] == "":
             Logger.debug('_initialize_sound no sound played for step {}'.format(
                 self.idx_stp))
-            return 50
+            return False
         else:
             if self.seq_snds[self.idx_stp] == "default":
                 Logger.debug('_initialize_sound default sound for step {}\
@@ -111,7 +111,7 @@ class Sequence():
             if self.sound is None:
                 Logger.debug("_initialize_sound: not a valid sound for step {}: {}".format(
                     self.idx_stp, self.seq_snds[self.idx_stp]))
-                return 50
+                return False
             elif self.sound.state == 'stop':
                 self.sound.play()
                 if platform == "android":
@@ -130,13 +130,13 @@ class Sequence():
                 Logger.debug('activity_click: Sound {} end playing sound on{}. Sound\
                     length is {}. Now is{}'.format(self.sound.filename, self.time_sound_played,
                     self.sound.length, time.time()))
-                return 20
+                return True
             else:
                 Logger.debug("activity_click: Sound in not expected state {} for step {}: {}".format(
                     self.sound.state,
                     self.idx_stp,
                     self.seq_snds[self.idx_stp]))
-                return 50
+                return False
 
     def activity_click(self):
         #Logger.debug("sequence.activity_click: self.sequence_state: {} - okPLay: {}".format(
@@ -146,28 +146,31 @@ class Sequence():
                 missing = self.time_end_step - time.time()
                 if missing < 0 or self.sequence_state > 10:
                     if self.sequence_state == 10:  # Load The sound File
-                        self.sequence_state = self._initialize_sound()
-                    elif self.sequence_state == 20:  # Wait for time ti be elapsed.
+                        if self._initialize_sound():
+                            self.sequence_state = 20
+                        else:
+                            self.sequence_state = 30
+                    elif self.sequence_state == 20:                                   # 20 Wait for time to be elapsed.
                         if missing < -5:  # ToDo avoid 5sec limit
                             Logger.debug("activity_click: sound too long for step {}: {}".format(
                                 self.idx_stp,
                                 self.seq_snds[self.idx_stp]))
-                            self.sequence_state = 50
+                            self.sequence_state = 30
                         elif time.time() > self.time_sound_played:  # Ok to stop the file
                                 Logger.debug("activity_click: stopping sound at {}".format(time.time()))
                                 self.sound.stop()
                                 self.sound.unload()  # ToDo: improve this unloading more smartly
-                                self.sequence_state = 50
+                                self.sequence_state = 30
                         else:
                             pass  # Logger.debug("activity_click: waiting for sound play")
-                    elif self.sequence_state == 50:  # Excecute Next Step
+                    elif self.sequence_state == 30:                                     # 30 Update indexes and images.
                         if self.idx_stp < len(self.seq_timings):
                             self.idx_stp += 1
-                            self.res_last_action = 0
                             self._initialize_image()
-                            self.sequence_state = 60  # waiting another cicle to let the screen to be updated
+                            self.sequence_state = 40  # waiting clock to let the screen to be updated
                         else:
                             self.stop_sequence()
+                    elif self.sequence_state == 40:  # Excecute Next Step
                     elif self.sequence_state == 60:  # Excecute Next Step
                         self.time_last_step = int(time.time())
                         self.time_end_step = self.time_last_step + self.seq_timings[self.idx_stp]

@@ -87,6 +87,6 @@ if __name__ == '__main__':
         osc_push_message(sequence.get_state_string(), '/osd')
         osc_send()
         sequence.activity_click()
-        #sequence.get_state_string()
+        #sequence.get_cockpit_info()
         time.sleep(.1)
 

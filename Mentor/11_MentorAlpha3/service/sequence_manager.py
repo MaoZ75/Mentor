@@ -39,21 +39,17 @@ class Sequence():
         self.music_folder = '.'
         self.official_separator = "\t"
         self.ok_music = True
-        self.ok_play = False
-        self.pause_time = 0
-        self.res_last_action = 0
         self.separators = ["\t", ";"]
         self.seq_images = []  # image location
         self.seq_modes = []  # Action (TTS_EN, TTS_IT, Play)
         self.seq_snds = []  # sound to be played at the end location
         self.seq_text_messages = []  # Text/FileName
         self.seq_timings = []  # in seconds
+        self.seq_time_thresholds = [0.0]  # time in which the step must start
         self.sound = None
         self.sound_manager = MusicManager()
-        self.sequence_state = 50  # Variable for state machine on playing attention sound
+        self.sequence_state = 90  # Variable for state machine of activity_click
         self.time_duration = 0
-        self.time_end_step = 0
-        self.time_last_step = 0
         self.time_sound_played = 0
         self.title = 'Null Sequence'
 
@@ -87,15 +83,15 @@ class Sequence():
     def _initialize_sound(self):
         """
         initializes and eventually starts the sound for the current step
-        :return: the next state depending on the result of sound
-            - 20 if always is ok
-            - 50 if the sound shouldn't / coundn't be started
+        :return:
+            True if everything is ok
+            False if the sound shouldn't / coundn't be started
         """
         #Logger.debug("[{}]".format(self.seq_snds[self.idx_stp]))
         if self.seq_snds[self.idx_stp] == "":
             Logger.debug('_initialize_sound no sound played for step {}'.format(
                 self.idx_stp))
-            return 50
+            return False
         else:
             if self.seq_snds[self.idx_stp] == "default":
                 Logger.debug('_initialize_sound default sound for step {}\
@@ -111,7 +107,7 @@ class Sequence():
             if self.sound is None:
                 Logger.debug("_initialize_sound: not a valid sound for step {}: {}".format(
                     self.idx_stp, self.seq_snds[self.idx_stp]))
-                return 50
+                return False
             elif self.sound.state == 'stop':
                 self.sound.play()
                 if platform == "android":
@@ -130,57 +126,90 @@ class Sequence():
                 Logger.debug('activity_click: Sound {} end playing sound on{}. Sound\
                     length is {}. Now is{}'.format(self.sound.filename, self.time_sound_played,
                     self.sound.length, time.time()))
-                return 20
+                return True
             else:
                 Logger.debug("activity_click: Sound in not expected state {} for step {}: {}".format(
                     self.sound.state,
                     self.idx_stp,
                     self.seq_snds[self.idx_stp]))
-                return 50
+                return False
 
-    def activity_click(self):
-        #Logger.debug("sequence.activity_click: self.sequence_state: {} - okPLay: {}".format(
-        #    self.sequence_state, self.ok_play))
-        if self.ok_play:
-            if self.res_last_action == 0:  # Ok for a new check
-                missing = self.time_end_step - time.time()
-                if missing < 0 or self.sequence_state > 10:
-                    if self.sequence_state == 10:  # Load The sound File
-                        self.sequence_state = self._initialize_sound()
-                    elif self.sequence_state == 20:  # Wait for time ti be elapsed.
-                        if missing < -5:  # ToDo avoid 5sec limit
-                            Logger.debug("activity_click: sound too long for step {}: {}".format(
-                                self.idx_stp,
-                                self.seq_snds[self.idx_stp]))
-                            self.sequence_state = 50
-                        elif time.time() > self.time_sound_played:  # Ok to stop the file
-                                Logger.debug("activity_click: stopping sound at {}".format(time.time()))
-                                self.sound.stop()
-                                self.sound.unload()  # ToDo: improve this unloading more smartly
-                                self.sequence_state = 50
-                        else:
-                            pass  # Logger.debug("activity_click: waiting for sound play")
-                    elif self.sequence_state == 50:  # Excecute Next Step
-                        if self.idx_stp < len(self.seq_timings):
-                            self.idx_stp += 1
-                            self.res_last_action = 0
-                            self._initialize_image()
-                            self.sequence_state = 60  # waiting another cicle to let the screen to be updated
-                        else:
-                            self.stop_sequence()
-                    elif self.sequence_state == 60:  # Excecute Next Step
-                        self.time_last_step = int(time.time())
-                        self.time_end_step = self.time_last_step + self.seq_timings[self.idx_stp]
-                        self.sequence_state = 70
-                    elif self.sequence_state == 70:  # Excecute Next Step
-                        self.exec_actual_activity()
-                        self.sequence_state = 10
-            elif self.sequence_state == 10:  # Last execution failed: do it again
-                self.exec_actual_activity()
-            #if not tts.isSpeaking():
-                #pass
-                #self.sound_manager.set_volume(1) # ToDo sound_manager
-                #self.sound_manager.play_next_on_stop()  # ToDo sound_manager
+    def activity_click(self, request=None):
+        """request values
+        None        let it run
+        'replay'    redo the last activity
+        'stop'      stops the sequence
+        'start'     starts the sequence
+        'pause'     not implemented
+
+
+        :return: actual_state
+        """
+        Logger.debug("sequence_manager Activity Click: state {}, step {}".format(self.sequence_state, self.idx_stp))
+        if self.sequence_state == 10:                                            # 10 Waiting for the next trigger
+            if request == 'replay':
+                self.sequence_state == 60
+            else:
+                if self.actual_idx() != self.idx_stp:
+                    self.sequence_state = 20
+        elif self.sequence_state == 20:                                          # 20 Load sound and update indexes
+            # Load The sound File
+            if self._initialize_sound():
+                self.sequence_state = 30
+            else:
+                self.sequence_state = 40
+            # Update indexes
+            if self.actual_idx() < len(self.seq_timings):
+                self.idx_stp = self.actual_idx()
+                self._initialize_image()
+            else:
+                self.sequence_state = 80
+        elif self.sequence_state == 30:                                        # 30 Wait for the sound to be played
+            missing = time.time() - self.seq_time_thresholds[self.idx_stp]
+            if missing < -5:  # ToDo sound has to be played in max 5sec, generalize
+                Logger.debug("activity_click: sound too long for step {}: {}".format(
+                    self.idx_stp,
+                    self.seq_snds[self.idx_stp]))
+                self.sequence_state = 60
+            elif time.time() > self.time_sound_played:  # Ok to stop the file
+                    Logger.debug("activity_click: stopping sound at {}".format(time.time()))
+                    self.sound.stop()
+                    self.sound.unload()  # ToDo: improve this unloading more smartly
+                    self.sequence_state = 60
+        elif self.sequence_state == 60:                                               # 60 Launch the next step asap
+            res = self.exec_actual_activity()
+            Logger.debug("Seq mana, activity click, exec_actual_activity gives {}, {}".format(res, res == 0))
+            #if res == 0:
+            self.sequence_state = 10
+        elif self.sequence_state == 80:                                                       # 80 Stop the sequence
+            # self.sound_manager.stop()  # ToDo: check if ok
+            # ToDo sound_manager
+            self.sequence_state = 90
+        elif self.sequence_state == 90:                                         # Sequence loaded: waiting for start
+            if request == 'start':
+                self.sequence_state = 99
+        elif self.sequence_state == 99:  # Start the sequence
+            self.seq_time_thresholds = [time.time()]
+            seconds = self.seq_time_thresholds[0]
+            for step_time in self.seq_timings:
+                seconds += step_time
+                self.seq_time_thresholds.append(seconds)
+            self.idx_stp = -1
+            self.sequence_state = 10
+        #if not tts.isSpeaking():
+            #pass
+            #self.sound_manager.set_volume(1) # ToDo sound_manager
+            #self.sound_manager.play_next_on_stop()  # ToDo sound_manager
+
+    def actual_idx(self):
+        for i in range(len(self.seq_time_thresholds)):
+            #Logger.debug("Sequence - actual_idx: {} - {} - {}".format(
+            #    self.seq_time_thresholds[i],
+            #    time.time(),
+            #    self.seq_time_thresholds[i] >= time.time()))
+            if self.seq_time_thresholds[i] >= time.time():
+                return i-1
+        return len(self.seq_time_thresholds) - 1
 
     def delta_pause(self):
         if self.pause_time == 0:
@@ -189,8 +218,13 @@ class Sequence():
             return int(time.time()) - self.pause_time
 
     def exec_actual_activity(self):
-        if tts.isSpeaking():
-            self.res_last_action = -1
+        """
+
+        :return: -1 if system not ready and need to be called later
+                 0 if OK
+        """
+        if tts.isSpeaking(): #adding last sound played
+            return -1
             Logger.debug("exec_actual_activity: Still talking")
         elif self.seq_modes[self.idx_stp][0:4] == "TTS_":
             #self.sound_manager.set_volume(0.1)
@@ -198,11 +232,11 @@ class Sequence():
             lng = self.seq_modes[self.idx_stp][-2:]
             msg = self.seq_text_messages[self.idx_stp]
             Logger.debug("Sequence exec_actual_activity: tts.speak({}, {})".format(msg, lng))
-            self.res_last_action = tts.speak(msg, lng)
+            return tts.speak(msg, lng)
         else:
             Logger.debug("Sequence exec_actual_activity: VIRTUAL{} {})".format(
                 self.seq_modes[self.idx_stp], self.seq_text_messages[self.idx_stp]))
-            self.res_last_action = 0  # show must go on!
+            return 0  # show must go on!
 
     def get_state_string(self):
         #if len(self.seq_timings) == 0 or self.idx_stp == -1:
@@ -246,25 +280,17 @@ class Sequence():
         cmd = message[2]
         Logger.info("Sequence Player Command: New command: {}".format(cmd))
         if cmd == 'play':
-            self.ok_play = True
-            #self.time_end_step += int(time.time()) - self.pause_time
-            self.pause_time = 0
+            self.activity_click('start')
         elif cmd == 'pause':
-            self.ok_play = False
-            if self.pause_time == 0:  # To avoid multiple pause presses
-                self.pause_time = int(time.time())
+            pass # Not Yet Implemented
         elif cmd == 'stop':
-            self.stop_sequence()
+            self.activity_click('stop')
         elif cmd == 'forward':
-            self.res_last_action = 0
-            #self.idx_stp = min(len(self.seq_timings), self.idx_stp + 1)
-            self.time_end_step = int(time.time()) + 1
+            pass  # Not Yet Implemented
         elif cmd == 'rewind':
-            self.res_last_action = 0
-            self.idx_stp = max(-1, self.idx_stp - 2)
-            self.time_end_step = int(time.time()) - 1
+            pass  # Not Yet Implemented
         elif cmd == 'replay':
-            self.exec_actual_activity()
+            self.activity_click('replay')
 
     def start_a_new_sequence(self, message, *args):
         self.__init__()
@@ -389,39 +415,12 @@ class Sequence():
                 self.seq_snds.append('default')
                 index -= 1
 
-    def stop_sequence(self):
-        Logger.debug("stop_sequence: OK 1")
-        # self.sound_manager.stop()  # ToDo: check if ok
-        # ToDo sound_manager
-        self.ok_play = False
-        #Logger.debug("stop_sequence: OK 2")
-        self.res_last_action = 0
-        #Logger.debug("stop_sequence: OK 3")
-        self.idx_stp = -1
-        #Logger.debug("stop_sequence: OK 4")
-        self.time_end_step = 0
-        #Logger.debug("stop_sequence: OK 5")
-        self.sequence_state = 10
-
     def time_left_action(self):
-        sec = 0
-        if self.time_end_step == 0:
-            pass  # return "00.00"
-        else:
-            sec = max(0,
-                      int(self.time_end_step - time.time())) #  + self.delta_pause()
-        return format_seconds(sec)
+        return format_seconds(
+            max(self.seq_time_thresholds[self.idx_stp + 1] - time.time(), 0))
 
     def time_left_total(self):
-        left = self.time_duration
-        if self.time_end_step == 0:
-            pass  # return format_seconds()
-        else:
-            sum_remaining = 0
-            for i in range(max(self.idx_stp+1, 0), len(self.seq_timings)):
-                sum_remaining += self.seq_timings[i]
-            left = max(0,
-                       int(self.time_end_step - time.time()) + sum_remaining + self.delta_pause())
-        return format_seconds(left)
+        return format_seconds(
+            max(self.seq_time_thresholds[-1] - time.time(), 0))
 
 
