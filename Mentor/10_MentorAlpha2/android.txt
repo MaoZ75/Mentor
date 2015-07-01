@@ -1,3 +1,0 @@
-title=Mentor 0.0.70
-author=MaoStagni
-orientation=portrait

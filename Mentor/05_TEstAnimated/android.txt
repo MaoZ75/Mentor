@@ -1,0 +1,4 @@
+title=Test Animations v 1.0
+author=MaoStagni
+orientation=portrait
+
