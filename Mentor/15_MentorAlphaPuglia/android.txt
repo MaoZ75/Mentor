@@ -1,0 +1,3 @@
+title=Mentor alphapuglia
+author=MaoStagni
+orientation=portrait

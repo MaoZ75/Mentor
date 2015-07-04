@@ -20,7 +20,8 @@ class BaseApp(App):
 
     def build(self):
         self.root = BaseWidget()
-        self.sources = [f for f in os.listdir(os.curdir) if f[-3:]=='gif']
+        self.sources = [f for f in os.listdir(os.curdir) if f[-3:]=='zip']
+        self.sources.extend([f for f in os.listdir(os.curdir) if f[-3:]=='png'])
         print(self.sources)
         #img = Image(id='jmp', source='jumping_jacks.zip',
         #    anim_delay=.4, size_hint_y=5)

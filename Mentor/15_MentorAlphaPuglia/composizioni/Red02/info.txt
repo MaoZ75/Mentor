@@ -1,0 +1,126 @@
+title;RED M.P. V02;
+lastmod;;;;
+timing in sec;type of order;image;sound;tts message
+Start of the sequence ---------------------------------------;
+10;TTS_EN;;default;RED Training 02. For this training you'll need: yourself, something to make a Clean Press
+10;TTS_EN;;default;RED Excercises, warm up with 7 minutes workout
+30;TTS_EN;;default;Jumping jacks
+10;TTS_EN;;default;Now rest
+30;TTS_EN;;default;Wall sit
+10;TTS_EN;;default;Now rest
+30;TTS_EN;;default;Push-up
+10;TTS_EN;;default;Now rest
+30;TTS_EN;;default;Abdominal crunch
+10;TTS_EN;;default;Now rest
+30;TTS_EN;;default;Step-up onto chair
+10;TTS_EN;;default;Now rest
+30;TTS_EN;;default;Squat
+10;TTS_EN;;default;Now rest
+30;TTS_EN;;default;Triceps dip on chair
+10;TTS_EN;;default;Now rest
+30;TTS_EN;;default;Plank
+10;TTS_EN;;default;Now rest
+30;TTS_EN;;default;High knees run in place
+10;TTS_EN;;default;Now rest
+30;TTS_EN;;default;Lunge
+10;TTS_EN;;default;Now rest
+30;TTS_EN;;default;Push-up and rotation
+10;TTS_EN;;default;Now rest
+15;TTS_EN;;default;Side plank
+15;TTS_EN;;default;Change Side
+180;TTS_EN;;default;RED, Agility. 10 times each. Plank to Teaser. Switch Squat. Hip Escape.
+60;TTS_EN;;default;Two minutes left.
+60;TTS_EN;;default;One minutes left.
+10;TTS_EN;;default;RED, Forse. Clean Presses
+90;TTS_EN;;default;Go, go, go!
+30;TTS_EN;;default;Now rest.
+90;TTS_EN;;default;Go, go, go!
+30;TTS_EN;;default;Now rest.
+90;TTS_EN;;default;Go, go, go!
+30;TTS_EN;;default;Now rest.
+10;TTS_EN;;default;RED, Dinamic Excercices
+20;TTS_EN;;default;High Mountain Climber.
+10;TTS_EN;;default;Now rest.
+20;TTS_EN;;default;Push up with lateral, alterned knee touching elbows.
+10;TTS_EN;;default;Now Rest
+20;TTS_EN;;default;High Mountain Climber.
+10;TTS_EN;;default;Now rest.
+20;TTS_EN;;default;Push up with lateral, alterned knee touching elbows.
+10;TTS_EN;;default;Now Rest
+20;TTS_EN;;default;High Mountain Climber.
+10;TTS_EN;;default;Now rest.
+20;TTS_EN;;default;Push up with lateral, alterned knee touching elbows.
+10;TTS_EN;;default;Now Rest
+20;TTS_EN;;default;High Mountain Climber.
+10;TTS_EN;;default;Now rest.
+20;TTS_EN;;default;Push up with lateral, alterned knee touching elbows.
+10;TTS_EN;;default;Now Rest
+20;TTS_EN;;default;High Mountain Climber.
+10;TTS_EN;;default;Now rest.
+20;TTS_EN;;default;Push up with lateral, alterned knee touching elbows.
+10;TTS_EN;;default;Now Rest
+20;TTS_EN;;default;High Mountain Climber.
+10;TTS_EN;;default;Now rest.
+20;TTS_EN;;default;Push up with lateral, alterned knee touching elbows.
+10;TTS_EN;;default;Now Rest
+20;TTS_EN;;default;High Mountain Climber.
+10;TTS_EN;;default;Now rest.
+20;TTS_EN;;default;Push up with lateral, alterned knee touching elbows.
+10;TTS_EN;;default;Now Rest
+20;TTS_EN;;default;High Mountain Climber.
+10;TTS_EN;;default;Now rest.
+20;TTS_EN;;default;Push up with lateral, alterned knee touching elbows.
+10;TTS_EN;;default;RED, Agility
+30;TTS_EN;;default;Geko exercise
+30;TTS_EN;;default;Rollè exercise
+30;TTS_EN;;default;Geko exercise
+30;TTS_EN;;default;Rollè exercise
+30;TTS_EN;;default;Geko exercise
+30;TTS_EN;;default;Rollè exercise
+30;TTS_EN;;default;Geko exercise
+30;TTS_EN;;default;Rollè exercise
+30;TTS_EN;;default;Geko exercise
+30;TTS_EN;;default;Rollè exercise
+10;TTS_EN;;default;RED, Agility
+20;TTS_EN;;default;Switch Jump.
+10;TTS_EN;;default;Now rest.
+20;TTS_EN;;default;Squat Side To Side.
+10;TTS_EN;;default;Now Rest
+20;TTS_EN;;default;Switch Jump.
+10;TTS_EN;;default;Now rest.
+20;TTS_EN;;default;Squat Side To Side.
+10;TTS_EN;;default;Now Rest
+20;TTS_EN;;default;Switch Jump.
+10;TTS_EN;;default;Now rest.
+20;TTS_EN;;default;Squat Side To Side.
+10;TTS_EN;;default;Now Rest
+20;TTS_EN;;default;Switch Jump.
+10;TTS_EN;;default;Now rest.
+20;TTS_EN;;default;Squat Side To Side.
+10;TTS_EN;;default;Now Rest
+20;TTS_EN;;default;Switch Jump.
+10;TTS_EN;;default;Now rest.
+20;TTS_EN;;default;Squat Side To Side.
+10;TTS_EN;;default;Now Rest
+20;TTS_EN;;default;Switch Jump.
+10;TTS_EN;;default;Now rest.
+20;TTS_EN;;default;Squat Side To Side.
+10;TTS_EN;;default;Now Rest
+20;TTS_EN;;default;Switch Jump.
+10;TTS_EN;;default;Now rest.
+20;TTS_EN;;default;Squat Side To Side.
+10;TTS_EN;;default;Now Rest
+20;TTS_EN;;default;Switch Jump.
+10;TTS_EN;;default;Now rest.
+20;TTS_EN;;default;Squat Side To Side.
+10;TTS_EN;;default;RED, Core
+30;TTS_EN;;default;Plan Walk exercise
+30;TTS_EN;;default;Criss Cross to Teaser exercise
+30;TTS_EN;;default;Plan Walk exercise
+30;TTS_EN;;default;Criss Cross to Teaser exercise
+30;TTS_EN;;default;Plan Walk exercise
+30;TTS_EN;;default;Criss Cross to Teaser exercise
+30;TTS_EN;;default;Plan Walk exercise
+30;TTS_EN;;default;Criss Cross to Teaser exercise
+30;TTS_EN;;default;Plan Walk exercise
+30;TTS_EN;;default;Criss Cross to Teaser exercise

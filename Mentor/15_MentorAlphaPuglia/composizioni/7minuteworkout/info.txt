@@ -1,0 +1,28 @@
+title;7 minutes workout;
+lastmod;;;;
+timing in sec;type of order;image;sound;tts message
+Start of the sequence ---------------------------------------;
+30;TTS_EN;jumping_jacks.zip;default;Jumping jacks
+10;TTS_EN;images/now_rest.png;default;Now rest
+30;TTS_EN;wall_sit.png;default;Wall Sit
+10;TTS_EN;images/now_rest.png;default;Now rest
+30;TTS_EN;push_ups.zip;default;Pushups
+10;TTS_EN;images/now_rest.png;default;Now rest
+30;TTS_EN;crunches.zip;default;Abdominal Crunches
+10;TTS_EN;images/now_rest.png;default;Now rest
+30;TTS_EN;step_up_chair.zip;default;Step Up Into a Chair
+10;TTS_EN;images/now_rest.png;default;Now rest
+30;TTS_EN;air_squat.zip;default;Air Squat
+10;TTS_EN;images/now_rest.png;default;Now rest
+30;TTS_EN;triceps_chair.zip;default;Triceps Dips on chair
+10;TTS_EN;images/now_rest.png;default;Now rest
+30;TTS_EN;plank.png;default;Plank
+10;TTS_EN;images/now_rest.png;default;Now rest
+30;TTS_EN;high_knees.zip;default;High knees run in place
+10;TTS_EN;images/now_rest.png;default;Now rest
+30;TTS_EN;lunges.zip;default;Lunges
+10;TTS_EN;images/now_rest.png;default;Now rest
+30;TTS_EN;push_up_rotation.zip;default;Push-up and rotation
+10;TTS_EN;images/now_rest.png;default;Now rest
+15;TTS_EN;side_plank.png;default;Side Plank
+15;TTS_EN;side_plank.png;default;Change Side

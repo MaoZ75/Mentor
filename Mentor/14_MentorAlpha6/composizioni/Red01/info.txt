@@ -1,0 +1,82 @@
+title;RED M.P. V01;
+lastmod;;;;
+timing in sec;type of order;image;sound;tts message
+Start of the sequence ---------------------------------------
+10;TTS_EN;;default;RED Training 01. For this training you'll need: yourself, something to pull-up
+10;TTS_EN;;default;RED Excercises, warm up with 7 minutes workout
+30;TTS_EN;;default;Jumping jacks
+10;TTS_EN;;default;Now rest
+30;TTS_EN;;default;Wall sit
+10;TTS_EN;;default;Now rest
+30;TTS_EN;;default;Push-up
+10;TTS_EN;;default;Now rest
+30;TTS_EN;;default;Abdominal crunch
+10;TTS_EN;;default;Now rest
+30;TTS_EN;;default;Step-up onto chair
+10;TTS_EN;;default;Now rest
+30;TTS_EN;;default;Squat
+10;TTS_EN;;default;Now rest
+30;TTS_EN;;default;Triceps dip on chair
+10;TTS_EN;;default;Now rest
+30;TTS_EN;;default;Plank
+10;TTS_EN;;default;Now rest
+30;TTS_EN;;default;High knees run in place
+10;TTS_EN;;default;Now rest
+30;TTS_EN;;default;Lunge
+10;TTS_EN;;default;Now rest
+30;TTS_EN;;default;Push-up and rotation
+10;TTS_EN;;default;Now rest
+15;TTS_EN;;default;Side plank
+15;TTS_EN;;default;Change Side
+10;TTS_EN;;default;RED, Dynamic Exersises
+20;TTS_EN;;default;Switches
+10;TTS_EN;;default;Now rest
+20;TTS_EN;;default;Burpees
+10;TTS_EN;;default;Now rest
+20;TTS_EN;;default;Switches
+10;TTS_EN;;default;Now rest
+20;TTS_EN;;default;Burpees
+10;TTS_EN;;default;Now rest
+20;TTS_EN;;default;Switches
+10;TTS_EN;;default;Now rest
+20;TTS_EN;;default;Burpees
+10;TTS_EN;;default;Now rest
+20;TTS_EN;;default;Switches
+10;TTS_EN;;default;Now rest
+20;TTS_EN;;default;Burpees
+20;TTS_EN;;default;RED, Force, prepare for pull ups
+90;TTS_EN;;default;Amrap Pull Ups
+30;TTS_EN;;default;Now Rest
+60;TTS_EN;;default;Amrap Pull Ups
+30;TTS_EN;;default;Now Rest
+60;TTS_EN;;default;Amrap Pull Ups
+10;TTS_EN;;default;RED, Dynamic Exersises
+20;TTS_EN;;default;Switches
+10;TTS_EN;;default;Now rest
+20;TTS_EN;;default;Burpees
+10;TTS_EN;;default;Now rest
+20;TTS_EN;;default;Switches
+10;TTS_EN;;default;Now rest
+20;TTS_EN;;default;Burpees
+10;TTS_EN;;default;Now rest
+20;TTS_EN;;default;Switches
+10;TTS_EN;;default;Now rest
+20;TTS_EN;;default;Burpees
+10;TTS_EN;;default;Now rest
+20;TTS_EN;;default;Switches
+10;TTS_EN;;default;Now rest
+20;TTS_EN;;default;Burpees
+10;TTS_EN;;default;RED, Agility
+75;TTS_EN;;default;Hip Escape
+75;TTS_EN;;default;DownDog To Bridge
+75;TTS_EN;;default;Hip Escape
+75;TTS_EN;;default;DownDog To Bridge
+10;TTS_EN;;default;RED, Crunches
+30;TTS_EN;;default;Crunch with weight
+30;TTS_EN;;default;Plank to teas, left and right
+30;TTS_EN;;default;Crunch with weight
+30;TTS_EN;;default;Plank to teas, left and right
+30;TTS_EN;;default;Crunch with weight
+30;TTS_EN;;default;Plank to teas, left and right
+30;TTS_EN;;default;Crunch with weight
+30;TTS_EN;;default;Plank to teas, left and right
