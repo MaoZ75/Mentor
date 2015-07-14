@@ -1,0 +1,19 @@
+[INFO              ] Logger: Record log in /storage/emulated/0/kivy/15_MentorAlphaPuglia/service/.kivy/logs/kivy_15-07-04_1.txt
+[INFO              ] Kivy: v1.9.0
+[INFO              ] Python: v2.7.2 (default, Apr  2 2015, 13:52:41) 
+[GCC 4.8]
+[INFO              ] OSC: using <thread> for socket
+[INFO              ] Audio: Providers: audio_pygame (audio_pygst, audio_ffpyplayer ignored)
+[INFO              ] OSC: listening for Tuio on 0.0.0.0:3000
+[INFO              ] start_a_new_sequence: base folder: /storage/emulated/0/kivy/15_MentorAlphaPuglia/composizioni/test
+[INFO              ] start_a_new_sequence: /storage/emulated/0/kivy/15_MentorAlphaPuglia/composizioni/test/info.txt well decoded in windows-1252
+[INFO              ] New Sequence Loaded: Title: Test_Exercices (02.40 seconds, 16 elements)
+[INFO              ] Sequence Player Command: New command: play
+[INFO              ] Sequence Player Command: New command: stop
+[INFO              ] start_a_new_sequence: base folder: /storage/emulated/0/kivy/15_MentorAlphaPuglia/composizioni/7minuteworkout
+[INFO              ] start_a_new_sequence: /storage/emulated/0/kivy/15_MentorAlphaPuglia/composizioni/7minuteworkout/info.txt well decoded in windows-1252
+[INFO              ] New Sequence Loaded: Title: 7 minutes workout (07.50 seconds, 24 elements)
+[INFO              ] Sequence Player Command: New command: play
+[INFO              ] Sequence Player Command: New command: stop
+[INFO              ] Sequence Player Command: New command: jump to step 06
+[INFO              ] Sequence Player Command: New command: play
