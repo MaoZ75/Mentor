@@ -1,0 +1,45 @@
+[INFO              ] Logger: Record log in /storage/emulated/0/kivy/15_Mentorcharisma/.kivy/logs/kivy_15-07-09_0.txt
+[INFO              ] Kivy: v1.9.0
+[INFO              ] Python: v2.7.2 (default, Apr  2 2015, 13:52:41) 
+[GCC 4.8]
+[INFO              ] Factory: 173 symbols loaded
+[WARNING           ] stderr: /data/data/org.kivy.pygame/files/lib/python2.7/site-packages/kivy/core/image/img_pygame.py:13: RuntimeWarning: import cdrom: No module named cdrom
+[WARNING           ] stderr: (ImportError: No module named cdrom)
+[INFO              ] Image: Providers: img_tex, img_dds, img_gif, img_pygame, img_pil (img_ffpyplayer ignored)
+[INFO              ] Text: Provider: pygame
+[INFO              ] OSC: using <thread> for socket
+[WARNING           ] Factory: Ignored class "MentorButton" re-declaration. Current -  module: None, cls: <class '__main__.MentorButton'>, baseclass: None, filename: None. Ignored -  module: None, cls: None, baseclass: Button, filename: ./base.kv.
+[INFO              ] OSC: listening for Tuio on 0.0.0.0:3002
+[INFO              ] Folder music: /storage/emulated/legacy/Music/PerAttivita
+[INFO              ] Window: Provider: pygame
+[INFO              ] GL: OpenGL version <OpenGL ES 2.0 build 1.8.GOOGLENEXUS.ED945322@2198402>
+[INFO              ] GL: OpenGL vendor <Imagination Technologies>
+[INFO              ] GL: OpenGL renderer <PowerVR SGX 540>
+[INFO              ] GL: OpenGL parsed version: 2, 0
+[INFO              ] GL: Texture max size <2048>
+[INFO              ] GL: Texture max units <8>
+[INFO              ] Support: Android install hooks
+[INFO              ] Window: virtual keyboard not allowed, single mode, not docked
+[INFO              ] Video: Provider: ffmpeg(['video_pygst'] ignored)
+[INFO              ] GL: NPOT texture support is available
+[INFO              ] Base: Start application main loop
+[INFO              ] Android: found 17 joystick
+[INFO              ] Android: create joystick <0>
+[INFO              ] Android: discard joystick <0> cause no button
+[INFO              ] Android: create joystick <1>
+[INFO              ] Android: create joystick <2>
+[INFO              ] Android: create joystick <3>
+[INFO              ] Android: create joystick <4>
+[INFO              ] Android: create joystick <5>
+[INFO              ] Android: create joystick <6>
+[INFO              ] Android: create joystick <7>
+[INFO              ] Android: create joystick <8>
+[INFO              ] Android: create joystick <9>
+[INFO              ] Android: create joystick <10>
+[INFO              ] Android: create joystick <11>
+[INFO              ] Android: create joystick <12>
+[INFO              ] Android: create joystick <13>
+[INFO              ] Android: create joystick <14>
+[INFO              ] Android: create joystick <15>
+[INFO              ] Android: create joystick <16>
+[INFO              ] Base: Leaving application in progress...

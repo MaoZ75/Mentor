@@ -1,0 +1,1 @@
+C:\SWTOOLS\backSW\Kivy\Kivy-1.9.0-py2.7-win32-x64\Kivy-1.9.0-py2.7-win32-x64\python.bat main.py

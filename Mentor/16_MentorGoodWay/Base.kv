@@ -1,0 +1,347 @@
+#:set screens ['Sequence', 'Time Settings', 'Timer', 'Imagery', 'Document']
+#:set btnpressed_img 'images/3_rating_good.png'
+
+<BaseWidget@GridLayout>:
+    rows: 2
+    cols: 1
+    # -------------------------------------------Action Bar
+    ActionBar:
+        id: action_bar
+        pos_hint: {'top':1}
+        ActionView:
+            use_separator: True
+            ActionPrevious:
+                #app_icon: 'images/ic_launcher3.png'
+                title: 'Mentor'
+                with_previous: False
+            ActionButton:
+                text: screens[page_layout.index]
+            ActionGroup:
+                id: a_group
+                mode: 'spinner'
+                text: 'pages'
+                ActionButton:
+                    text: screens[0]
+                    on_press:
+                        page_layout.index = 0
+                        a_group.is_open = False
+                ActionButton:
+                    text: screens[1]
+                    on_press:
+                        page_layout.index = 1
+                        a_group.is_open = False
+
+                ActionButton:
+                    text: screens[2]
+                    on_press: page_layout.index = 2
+                ActionButton:
+                    text: screens[3]
+                    on_press: page_layout.index = 3
+                ActionButton:
+                    text: screens[4]
+                    on_press: page_layout.index = 4
+    Carousel:
+        id: page_layout
+        direction: 'right'
+        #current_slide: 1
+        loop: True
+        index: 0
+    # ------------------------------------ sequence_selector
+        GridLayout:
+            id: grid_sequences
+            rows: 2
+            padding: [10.0,10.0,10.0,10.0]
+            GridLayout:
+                id: grid_main
+                cols:2
+                spacing: 10.0
+                padding: [0.0,10.0,0.0,10.0]
+                #spacing: 2
+                #row_force_default: 50
+            Button:
+                size_hint_y: .1
+                text: "start"
+                on_press:
+                    page_layout
+                    page_layout.page = 2
+                    app.osc_send()
+            #spacing: 2
+            #row_force_default: 50
+    # ------------------------------------------------ Tabata
+        FloatLayout:
+            id: 'home'
+            Label:
+                size_hint: 1.0, .1
+                pos_hint: {'x': .0, 'y': .9}
+                font_size: '30dp'
+                text: 'Tabata'
+            TextInput:
+                id: work_sec
+                input_type: 'number'
+                text: '20'
+                font_size: self.height * .60# '80dp'
+                pos_hint: {'x': .2, 'y': .7}
+                size_hint: .25, .2
+            Label:
+                text_size: (self.width, 0)
+                pos_hint: {'x': .2, 'y': .6}
+                size_hint: .25, .1
+                font_size: '30dp'
+                text: 'Work'
+            TextInput:
+                id: rest_sec
+                input_type: 'number'
+                text: '10'
+                font_size: '80dp'
+                font_size: self.height * .6# '80dp'
+                pos_hint: {'x': .6, 'y': .7}
+                size_hint: .25, .2
+            Label:
+                text_size: (self.width, 0)
+                size_hint: .25, .1
+                pos_hint: {'x': .6, 'y': .6}
+                font_size: '30dp'
+                text: 'Rest'
+            TextInput:
+                id: exercises
+                input_type: 'number'
+                text: '05'
+                font_size: self.height * .6# '80dp'
+                pos_hint: {'x': .2, 'y': .4}
+                size_hint: .25, .2
+            Label:
+                text_size: (self.width, 0)
+                size_hint: .25, .1
+                pos_hint: {'x': .2, 'y': .3}
+                font_size: '30sp'
+                text: 'Exer'
+            TextInput:
+                id: repetitions
+                input_type: 'number'
+                text: '01'
+                font_size: '70sp'
+                font_size: self.height * .6# '80dp'
+                pos_hint: {'x': .6, 'y': .4}
+                size_hint: .25, .2
+            Label:
+                text_size: (self.width, 0)
+                size_hint: .25, .1
+                pos_hint: {'x': .6, 'y': .3}
+                font_size: '30dp'
+                text: 'Reps'
+            Button:
+                text: "Start\nSequence"
+                group: 'Commands'
+                font_size: '40dp'
+                background_color: (0.1,0.1,0.1,1)
+                #foreground_color: (1.0,1.0,1.0,1.0)
+                pos_hint: {'x': .5, 'y': .0}
+                size_hint: .4, .2
+                on_press: app.osc_send([work_sec.text, rest_sec.text, exercises.text, repetitions.text], "/tbt")
+        # ------------------------------------------- TIMER
+        FloatLayout:
+            id: home
+            Label:
+                id: current_title
+                size_hint: 1.0, .1
+                pos_hint: {'x': .0, 'y': .9}
+                font_size: '30dp'
+                text: "----"
+            Label:
+                id: current_minute
+                text: "'"
+                font_size: '80dp'
+                background_color: (0,0,0,1)
+                foreground_color: (1.0,1.0,1.0,1.0)
+                font_color: (0,0,0,0)
+                pos_hint: {'x': .2, 'y': .7}
+                size_hint: .3, .2
+            Label:
+                id: current_second
+                text: "''"
+                font_size: '80dp'
+                background_color: (0,0,0,1)
+                foreground_color: (1.0,1.0,1.0,1.0)
+                font_color: (0,0,0,0)
+                pos_hint: {'x': .6, 'y': .7}
+                size_hint: .3, .2
+            Label:
+                id: current_exercise
+                text: '0'
+                font_size: '80dp'
+                background_color: (0,0,0,1)
+                foreground_color: (1.0,1.0,1.0,1.0)
+                font_color: (0,0,0,0)
+            Label:
+                size_hint: .1, .1
+                pos_hint: {'x': .3, 'y': .45}
+                font_size: '30sp'
+                text: 'ex.'
+            Label:
+                id: current_repetition
+                text: '0'
+                font_size: '80sp'
+                background_color: (0,0,0,1)
+                foreground_color: (1.0,1.0,1.0,1.0)
+                font_color: (0,0,0,0)
+                pos_hint: {'x': .6, 'y': .5}
+                size_hint: .3, .2
+            Label:
+                size_hint: .1, .1
+                pos_hint: {'x': .6, 'y': .45}
+                font_size: '30dp'
+                text: 'reps'
+            Button:
+                text: "Start"
+                group: 'Commands'
+                font_size: '40dp'
+                background_color: (0.1,0.1,0.1,1)
+                #foreground_color: (1.0,1.0,1.0,1.0)
+                pos_hint: {'x': .05, 'y': .0}
+                size_hint: .3, .2
+                on_press: app.osc_send(['play'], '/cmd')
+            Button:
+                text: "Pause"
+                group: 'Commands'
+                font_size: '40dp'
+                background_color: (0.1,0.1,0.1,1)
+                #foreground_color: (1.0,1.0,1.0,1.0)
+                pos_hint: {'x': .35, 'y': .0}
+                size_hint: .3, .2
+                on_press: app.osc_send(['pause'], '/cmd')
+            Button:
+                text: "Stop"
+                group: 'Commands'
+                font_size: '40dp'
+                background_color: (0.1,0.1,0.1,1)
+                #foreground_color: (1.0,1.0,1.0,1.0)
+                pos_hint: {'x': .65, 'y': .0}
+                size_hint: .3, .2
+                on_press: app.osc_send(['stop'], '/cmd')
+        # ------------------------------------------ PHOTOS
+        GridLayout:
+            id: photos
+            rows: 4
+            cols: 1
+            GridLayout:
+                rows: 1
+                cols: 1
+                size_hint_y: 5
+                Image:
+                #AsyncImage:
+                    id: img_bk
+                    source: "images/bk_nw.png"
+                    anim_delay: .5
+            GridLayout:
+                rows: 2
+                cols: 1
+                size_hint_y: 2
+                Label:
+                    #size_hint_x: 4
+                    id: log
+                    text: 'Mentor Text'
+                    size_hint_y: 1
+                    font_size: self.height * .70
+                Label:
+                    #size_hint_x: 4
+                    id: the_exercises
+                    text: 'Exercises description'
+                    #size_hint_y: 3
+                    max_lines: 0
+                    shorten: False
+                    font_size: self.height * .24 # .70 / 3.0 
+                    size_hint: 1, 3
+                    text_size: self.size
+                    valign: 'middle'
+                    halign: 'center'
+            GridLayout:
+                rows:1
+                cols:8
+                Label:
+                    size_hint_x: 1
+                Button:
+                    background_normal: 'images/9_av_play.png'
+                    background_down: btnpressed_img
+                    border: (0,0,0,0)
+                    on_press: app.osc_send(['play'], '/cmd')
+                Button:
+                    background_normal: 'images/9_av_pause.png'
+                    background_down: btnpressed_img
+                    border: (0,0,0,0)
+                    on_press: app.osc_send(['pause'], '/cmd')
+                Button:
+                    background_normal: 'images/9_av_stop.png'
+                    background_down: btnpressed_img
+                    border: (0,0,0,0)
+                    on_press: app.osc_send(['stop'], '/cmd')
+                Button:
+                    size_hint_x: 2
+                    id: actual_step
+                    text: "-- / --"
+                    on_press:
+                        app.select_step()
+                    #on_text: app.osc_send(['jump to step{:2d}'.format(int(starting_step.text))], '/cmd')
+                Label:
+                Button:
+                    id: btnMusic
+                    background_normal: 'images/12_hardware_headphones.png'
+                    background_down: btnpressed_img
+                    on_press:
+            GridLayout:
+                rows:1
+                cols:4
+                Label:
+                    text: 'Left'
+                Label:
+                    id: partial_left
+                    text: '00.00'
+                Label:
+                    text: 'Tot Left'
+                Label:
+                    id: total_left
+                    text: '00.00'
+        # ------------------------------------------ reStructuredText
+        GridLayout:
+            rows: 1
+            cols: 1
+            RstDocument:
+                id: rst_doc
+                text: """Title\n-------------------"""
+                source: 'info.rst'
+
+<MPopup@Popup>:
+    size_hint: .5, .5
+    auto_dismiss: False
+    title: 'Choose Step'
+    GridLayout:
+        rows:2
+        cols:1
+        NumericTextInput:
+            id: step_value
+            text: '01'
+            size_hint_y: 4
+        Button:
+            text: 'Select'
+            font_size: self.height * .60# '80dp'
+            size_hint_y: 1
+            on_press:
+                app.osc_send(['jump to step {:02d}'.format(int(step_value.text))], '/cmd')
+                root.dismiss()
+
+<MentorButton@Button>:
+    size_hint: 1, 1
+    max_lines: 0
+    shorten: False
+    text_size: self.size
+    valign: 'middle'
+    halign: 'center'
+    #color: (1, 1, 1, 1)
+    #font_size: 22
+
+<NumericTextInput@TextInput>:
+    input_type: 'number'
+    text: '20'
+    font_size: self.height * .60# '80dp'
+    size_hint: .25, .2
+    valign: 'middle'
+    halign: 'center'
