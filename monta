@@ -1,8 +1,0 @@
-export ANDROIDSDK="/home/kivy/android/android-sdk"
-export ANDROIDNDK="/home/kivy/android/android-ndk-r9d"
-export ANDROIDNDKVER=r9d
-export ANDROIDAPI=14
-#export P4A_kivy_DIR=/home/kivy/android/kivy/
-sudo mount -t vboxsf kivy /home/kivy/code/test
-sudo mount -t vboxsf dnl /home/kivy/Downloads
-
